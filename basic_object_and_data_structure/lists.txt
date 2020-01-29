@@ -1,0 +1,67 @@
+Lists: It is a ordered sequence of the data types
+
+a=[] defining an empty list
+we can use type() function to check the type of the variable value we have
+a=[1,23.4,"WEareOK"]
+
+List Slicing
+a=[1.23,23,"Okay","Welcome",False]
+a[::1]
+Out: [1.23, 23, 'Okay', 'Welcome', False]
+
+a[::-1]
+Out: [False, 'Welcome', 'Okay', 23, 1.23]
+
+a[1::]
+Out: [23, 'Okay', 'Welcome', False]
+
+a[:1:]
+Out: [1.23]
+
+a[1::-1]
+Out: [23, 1.23]
+
+a[3:]
+Out: ['Welcome', False]
+
+a[:5]
+Out: [1.23, 23, 'Okay', 'Welcome', False]
+
+a[6]
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-158-84c1e027215d> in <module>
+----> 1 a[6]
+
+IndexError: list index out of range
+
+List Functions
+'append'- Appends the value to the end of the defined list_variable ,
+ 'clear' - Removes all the values in the list,
+ 'copy'- Returns a shallow copy of the list,
+b=a
+b[0]="Hi"
+a
+Out: ['Hi', 23, 'Okay', 'Welcome', False]
+b=a.copy()
+b[0] ="When"
+b
+Out: ['When', 23, 'Okay', 'Welcome', False]
+a
+Out: ['Hi', 23, 'Okay', 'Welcome', False]
+ 'count'- Returns the number of the times the given data in the list,
+ 'extend'- Appends the each values to the list as the indivual pairing,
+a.append(["Hi","Ehen","Where"])
+a
+Out: ['Hi', 23, 'Okay', 'Welcome', False, ['Hi', 'Ehen', 'Where']]
+a=["Hi",23,"OKAY"]
+a.extend(["WECLOME","HIGH"])
+a
+Out: ['Hi', 23, 'OKAY', 'WECLOME', 'HIGH']
+ 'index'- Returns the index value of the given data in the list,
+ 'insert'- Inserts the data in the given index of the list,
+ 'pop'- Removes the last value from the list and display it for one time, if index value is given then it will remove respective
+  value 
+ 'remove'- Remove the value given in the list if present ,
+ 'reverse' - Reverse the data in the list similar to lst[::-1],
+ 'sort'- does't return anything but sorts the items in the list

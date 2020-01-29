@@ -1,0 +1,51 @@
+Dict have unordered data types as they don't work with index, they work with key and value pair mapping
+
+We can acess value in any ordered just by the key of the value.
+
+d={} Empty dictionaries 
+d={1:"Value","K":12,"k2":"V2"}
+d[1]
+Out: 'Value'
+d["K"]
+Out: 12
+d["k2"]
+Out: 'V2'
+d[k2]
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-198-a4bc38d314e2> in <module>
+----> 1 d[k2]
+NameError: name 'k2' is not defined
+
+There is not Sciling operation on the Dictionaries keys, but we can do it on the list values if it is defined in the dict
+
+d={"k1":12,"k2":[1,"k2v1",[23,45],{"k22":"v22"}],"k3":{"k31":45,"k32":46}}
+d["k2"][2][0]
+Out: 23
+d["k2"][3]["k22"]
+Out: 'v22'
+d["k3"]["k32"]
+Out: 46
+d["k2"][::-1]
+Out: [{'k22': 'v22'}, [23, 45], 'k2v1', 1]
+
+Dictionaries functions dir(d):
+clear' - Clears the data in the dict,
+ 'copy' - Performs shallow copy,
+ 'fromkeys'- ,
+ 'get'- Returns the values for the given key,
+ 'items' - Returns the both keys and values in the dict in the form of tuple,
+ 'keys' - Returns the values of keys in the form of list,
+ 'pop'- Removes the values depending on the key sent to the function,
+ 'popitem'- Returns last items in dict and prints it,
+ 'setdefault',
+ 'update',
+d.update({"k4":"23"})
+d
+Out: {'k1': 12, 'k2': [1, 'k2v1', [23, 45], {'k22': 'v22'}], 'k4': '23'}
+ 'values' - Returns the values of the given dict
+
+Dict are mutable means the value of the key can be changed
+d["k2"]=13
+d
+Out: {'k1': 12, 'k2': 13, {'k22': 'v22'}], 'k4': '23'}

@@ -1,0 +1,54 @@
+data types:
+ data types are type of the data that we are handling with
+ int- integer (3,20,33)
+ float- floating(2.0, 0.5, 100.0)
+ str- string("ABDC",'ADSD'"@@@#") string are the ordered sequences of the characters, and they are immutable
+
+data structures:
+ data structures are the sequences of the various data types
+
+ list- Ordered sequences of the data types [data1,data2,data3], they are the called as ordered coz they can be acessed 
+ by their indexs
+ [1,'Hi',[23.4,"Secondary list"],200.3]
+ Note: In python the index starts with 0
+ 
+ dict- The datas are mapped with the key {k1:v1,k2:v2,k3:v3}
+ {"mykey":"value"}
+
+ tuple - Ordered unmutable means unchangable once declared them (1,"Hi",200.3), similar to list
+
+ sets- Unorderd collections of unique elements {"a","b"}
+
+ Boolean - Logical value indicating True or False
+
+Variable assigment:
+
+ Python support dynamic programming meaning we can directly assign a value to variable without declaring them
+ as int, float or str or ch as we defined in other languages.
+
+ variables are like the container which holds the value in them
+
+ single variable assignment
+ a=50 
+ a="string"
+ a=100.4
+ 
+ assiging same value to multiple variables
+ a=b=c=50
+
+ assiging different values to the multiple variables
+
+ a,b,c = 50,"string","112.4
+
+Numbers:
+
+ int is short form of integer like whole numbers
+ float is short form of floating number like 12.4,100.0 decimal point
+ 
+ whenever we are working with the number we should be careful about the ordering of the execution
+ () > ** > +x,-x.~x > *,/,// > +,- > <<,>> > & > ^ > | > ==, != , >, >=, <, <=, is, is not, in, not in > not > and>or
+
+
+ 
+
+

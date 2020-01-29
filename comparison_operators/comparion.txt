@@ -1,0 +1,10 @@
+Comparision are having > < >= <= != == also we can use and, or and not.
+
+2>4<5
+this is equivalent to and 2>4 and 4<5
+this will be true only when the left and right output are true else it will be false
+
+2>4 or 4<5: this will be true when either left or right side are true, and false if both the side are false
+
+not is used to reverse the bool output, if it is true it will be false  and viceversa
+

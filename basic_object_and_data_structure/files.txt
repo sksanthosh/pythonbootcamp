@@ -1,0 +1,36 @@
+Files can be audio file,text file or csv file 
+
+we can write, read or append to a file, when we open the file we have to make sure we are closing that file, for next 
+operations on it.
+
+Two ways to deal with the file
+myfile=open("myfile.txt") by default the mode will be r, we have to change it to w for writing
+r - read
+w - overwrites
+a - append
+r+ - read+ write
+w+ - read + write overwrites
+if we open like above then we need to close the file myfile.close()
+
+when we have opened file in read mode only then we should use only read functions and not the writes similarly vice versa
+
+to avoid the necessary of the closing of the file we use below method
+
+with open("myfile.txt",mode='w') as fileobject:
+  fileobject.read() or fileobject.write()
+
+with open("myfile.txt",mode="w+") as myfile:
+    myfile.writelines(["\nthis is first line","\nthis is second line","\nthis is third line"])
+    myfile.seek(0)
+    print(myfile.read())
+    
+this is first line
+this is second line
+this is third line
+
+with open("myfile.txt",mode="w+") as myfile:
+    myfile.writelines(["\nthis is first line","\nthis is second line","\nthis is third line"])
+    myfile.seek(0)
+    print(myfile.readlines())
+    
+['\n', 'this is first line\n', 'this is second line\n', 'this is third line']

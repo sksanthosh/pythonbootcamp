@@ -1,0 +1,106 @@
+String:
+ string is a ordered sequence of characters, means we can access the character in the string from their index.
+ In python, the index start with 0.
+ 
+ a = "H|e|l|l|o| |W|o|r|l|d"
+      0 1 2 3 4 5 6 7 8 9 10   positive indexing
+
+ a = "H|e|l|l|o| |W|o|r|l|d"
+    -11-10-9-8-7-6-5-4-3-2-1   negative indexing  we can acess the character in reverse order with the negative index
+
+Character access:
+a[3] gives l, a[-1] gives d, a[0] gives 0, a[5] gives  .
+
+String Slicing:
+ We can acess the substring from the given string in the format string[start:stop:step]
+ Note: stop size is not included in the extraction
+ a[0:3] gives Hel as stop is 3 we get the characters from the 3-1=2
+ *To get the characters from start to end except last character then we use a[:-1] or a[:len(a)-1] or a[:10]
+ *To get only end characters from the string then we use a[-1]
+ *To get the characters start to middle or some sub string a[:4:1] will give the values from 0 to 3 in forward 
+examples: 
+a="Hello World"
+
+a[::]
+Out: 'Hello World'
+
+a[:-1]
+Out: 'Hello Worl'
+
+a[:1]
+Out: 'H'
+
+a[::1]
+Out: 'Hello World'
+
+a[::-1]
+Out: 'dlroW olleH'
+
+a[:-4:1]
+Out: 'Hello W'
+
+a[:4:-1]
+Out: 'dlroW '
+
+a[3:7]
+Out: 'lo W'
+
+a[3::-1]
+Out: 'lleH'            
+
+Inbuild methods of string
+'capitalize'- Capatilize the First Character of the String,
+ 'casefold' - Returns the lower case of string,
+ 'center',
+ 'count'- Gives the count of the substring present in string ,
+ 'encode',
+ 'endswith - Returns Booleean True or False if the string endswith given substring',
+ 'expandtabs',
+ 'find'- Returns the index value of the first character from the given substring in string,
+ 'format'- "{index value/ variable name},{index value/ variable name}".format(variablename/ variablename="value")
+ 'format_map'-"{key},{key1}".format_map(a) where a is dictionatory a={"key1":"value1,"key2":"value2"}
+ 'index' - Returns the index value of the given substring in the given string,
+ 'isalnum'- Return boolean while checking substring is having alphanumberic in it,
+ 'isalpha' - Return boolean while checking substrin is having only alpha in it,
+ 'isascii',
+ 'isdecimal',
+ 'isdigit',
+ 'isidentifier',
+ 'islower',
+ 'isnumeric',
+ 'isprintable',
+ 'isspace',
+ 'istitle',
+ 'isupper',
+ 'join' - Joins the list of strings, a.join(["value1", "value2", "value3"]) output- value1avalue2a,value3
+ 'ljust',
+ 'lower' - Returns the string with the lowercase,
+ 'lstrip' - Returns the strin with whitespaces removed at the left,
+ 'maketrans',
+ 'partition'- Returns the output in tuple based of given seperator in the string similar to split func but output in tuple form,
+ 'replace'- Replace the new one with old one,
+ 'rfind',
+ 'rindex',
+ 'rjust',
+ 'rpartition',
+ 'rsplit',
+ 'rstrip',
+ 'split' - Returns the output in list based on the seperator given,
+ 'splitlines',
+ 'startswith'- Returns Boolean by checking the string starts with given substring,
+ 'strip'- Returns a string with whitespaces removed at left and right,
+ 'swapcase' - Returns a string with the upper to lower and lower to upper case,
+ 'title' - Gives the string with each first char of the word to upper case,
+ 'translate',
+ 'upper'- Returns the string with the UPPER CASE,
+ 'zfill'
+
+
+Note: String are unmutable once they are declared meaning
+a = "HelloWorld"
+a[2] ="R" is not allowed
+
+floatformating string
+a=12.45465465
+"{value:width.precision f}".format(value)
+"{a:-*=|><^3.2f}".format(a) > --12.45--} 

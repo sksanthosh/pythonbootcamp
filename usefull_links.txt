@@ -1,0 +1,14 @@
+Below link shows the key difference between py to py3 >>>
+
+http://sebastianraschka.com/Articles/2014_python_2_3_key_diff.html  >>>this link shows the key difference between py to py3
+
+Below link shows which are packages that are having python3 support or not >>>
+
+http://chhantyal.net/py3readiness/   >>> shows which are packages that are having python3 support
+
+gitHub learning useful links >>> 
+
+https://guides.github.com/activities/hello-world/
+https://help.github.com/en/github/getting-started-with-github/git-and-github-learning-resources
+https://try.github.io/
+

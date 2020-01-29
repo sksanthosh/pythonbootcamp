@@ -1,0 +1,30 @@
+Tuples are the immutable, ordered sequence of data and any data can be added
+ they are similar to the list apart from mutable one
+t=()
+t=(23,["We",15,0.45,{"k1":"v1",2:3}],{"k3":"v3"})
+
+type(t)
+Out: tuple
+t[::-1]
+Out: ({'k3': 'v3'}, ['We', 15, 0.45, {'k1': 'v1', 2: 3}], 23)
+t[3:5]
+Out: ()
+t[3:4]
+Out: ()
+t[:3]
+Out: (23, ['We', 15, 0.45, {'k1': 'v1', 2: 3}], {'k3': 'v3'})
+t[:2]
+Out: (23, ['We', 15, 0.45, {'k1': 'v1', 2: 3}])
+t[0]
+Out: 23
+t[1][3]
+Out: {'k1': 'v1', 2: 3}
+t[1][3][2]
+Out: 3
+
+Tuples are used for data integrity, means as they are immutable they values in them are used as the paramters in the function 
+where it values does't get flip or change unexpectly
+
+dir(t)
+'count'- Gives the number of counts the value in the tuples,
+ 'index'- Gives the number of the index for the given data

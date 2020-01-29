@@ -1,0 +1,34 @@
+Sets are unordered and unique collection of data in them
+
+they don't allow the duplicates of the data
+s=set()
+type(s)
+add' - Adds the data into the set,
+s.add("Data")
+s
+Out: {'Data'}
+l=[1,2,2,4,1,4,3]
+set(l)
+Out: {1, 2, 3, 4}
+l
+Out: [1, 2, 2, 4, 1, 4, 3]
+ 'clear',
+ 'copy' - Performs shallow copy,
+ 'difference',
+ 'difference_update',
+ 'discard',
+ 'intersection',
+ 'intersection_update',
+ 'isdisjoint',
+ 'issubset',
+ 'issuperset',
+ 'pop',
+ 'remove',
+ 'symmetric_difference',
+ 'symmetric_difference_update',
+ 'union',
+ 'update'
+
+Boolean provides the output whenever we use the condition in the code, it returns either True or False sometimes None 
+b=bool()
+
