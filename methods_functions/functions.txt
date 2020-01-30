@@ -1,0 +1,23 @@
+Functions are used to perform the set of repetative task in the program
+
+Methods are functions defined inside the class
+
+DEFINING FUNCTION:
+SYNTAX: 
+Functions:
+ def fun_name(arguments/ parameters):
+     code block
+     return result if we are returning any value
+
+fun_name()
+
+Methods: Functions defined in the class
+class Example():
+   def fun_name(arguments/ parameters):
+     code block
+     return result if we are returning any value
+
+Example.fun_name()
+
+Functions use postional arguments, or keyword arguments
+
