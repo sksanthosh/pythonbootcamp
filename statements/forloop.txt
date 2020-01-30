@@ -1,0 +1,90 @@
+For Loops are used if we want to iterate over the sequence of the characters, items like Strings,List or Dict
+
+for iterator in sequenceofCharorDatatype:
+    operation on iterator
+
+ex:
+ITERATING ON RANGE OF NUMBERS
+for i in range(0,10):
+   print(i)
+
+ITERATING ON STRING
+s="HelloWorld!!!"
+for i in s:
+  print(i)
+Out: 
+H
+e
+l
+l
+o
+W
+o
+r
+l
+d
+!
+!
+
+for i in "HELP":
+  print(i)
+H
+E
+L
+P
+
+ITERATING OVER THE LIST:
+
+lst=["A","Basket","C","D","E","F"]
+
+for i in lst:
+  print(i)
+"A"
+"Basket"
+"C"
+"D"
+"E"
+"F"
+
+ITERATING OVER THE Tuple:
+t =(1,2,3)
+for i in t:
+  print(i)
+1
+2
+3
+
+TUPLE UNPACKING
+lst=[(1,3),(4,5),(6,8)]
+
+for i in lst:
+  print(i) >>> (1,3)
+               (4,5)
+               (6,8)
+so to unpack the tuple values in the list  we use below type
+
+for (a,b) in lst:
+  print(a)
+  print(b)
+
+lst=[(1,2,3),(4,5,6),(7,8,9)]
+for a,b,c in lst:
+  print(a,b,c)
+
+ITERATING over Dict:
+As dict are unordered and when we iterate over the dict, we iterate over the keys in the dict 
+d={"k1":"v1", "k2":"v2", "k3":"v3"}
+for i in d: by default it will d.keys()
+  print(i) >> k1 k2 k3
+To iterate over the values then we use d.values()
+for i in d.values():
+  print(i) >> v1 v2 v3
+
+To iterate or unpack both the key and value in dict we use tuple unpacking method as d.items() provide the output 
+in the form the tuples
+for (keys,values) or key, value in d.items()
+ print(keys, value)
+
+
+
+

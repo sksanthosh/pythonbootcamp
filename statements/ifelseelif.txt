@@ -1,0 +1,22 @@
+If,ELSE and ELIF are used to execute the certain code block if the conditon are meet.
+
+example: 
+
+if condition = True:
+   Code block under if
+else:
+   Code block under else
+
+Notice in above example when the condition is True, the code block under if is executed else
+the code block under else is executed
+
+If we want to check for multiple conditions and execute the code under them then
+
+if condition = True:
+   Code block under if
+elif condition = True:
+   Code block under elif block
+elif condition = True:
+   Code block under elif block
+else:
+   Code block under else 

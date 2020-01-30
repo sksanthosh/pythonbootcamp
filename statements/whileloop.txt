@@ -1,0 +1,66 @@
+While loops are used to execute an set of code block untill the condition becomes false
+in other words execute the codeblock untill the condition is true
+
+Syntax:
+
+All the variables in the while loop should be intialize before using them
+
+Intializing variable 
+
+While(Condition == True):
+  Code block under while loop
+  expression or operation to make the Condition False else it will be a infinite loop
+
+ex: 
+x=0
+ while x<=5:
+   print(x)
+   x+=1
+
+we can also use else under the while loops
+hungry = True
+while hungry:
+ print("feed my cats")
+ cat_says = input("Does your cat is hungry Y/N : ")
+ if cat_says.lower() == "y":
+   hungry = True
+ else cat_says.lower() == "n":
+   hungry = False
+
+there are 3 things that are used to do some action during the loops
+
+break, continue and pass
+example:
+
+s="Sammy"
+
+for i in s:
+    if i =="a":
+        pass
+    print(i)
+
+S
+a
+m
+m
+y
+
+for i in s:
+    if i =="a":
+        continue
+    print(i)
+    
+S
+m
+m
+y
+
+for i in s:
+    if i =="a":
+        break
+    print(i)
+    
+S
+
+
+

@@ -1,0 +1,128 @@
+There are various functions that are useful in python, some of the basic functions are defined below
+
+range function
+
+range gives the sequence of the numbers from the start to stop-1 and forward or reverse depending on the step size
+
+we can get the output of this sequence of numbers in the form of list by using typecastin of list
+
+list(range(start:stop:stepsize))
+
+Iterating over the range of numbers
+for i in range(start:stop:stepsize):
+  here i will start and stop till the number is stop -1
+
+enumerate function
+
+enumerate function gives the index and value of iteration of sequence which can be used
+
+index_count=0
+for i in "HelloWorld!!":
+  print(index_count, i)
+  index_count+=1
+
+enumerate("HelloWorld!!!")
+Out: <enumerate at 0x10943bf50>
+
+list(enumerate("HelloWorld!!!"))
+Out: We can see the output of enumerate like range function by passing it to list, but the output is in the form of tuple 
+[(0, 'H'),
+ (1, 'e'),
+ (2, 'l'),
+ (3, 'l'),
+ (4, 'o'),
+ (5, 'W'),
+ (6, 'o'),
+ (7, 'r'),
+ (8, 'l'),
+ (9, 'd'),
+ (10, '!'),
+ (11, '!'),
+ (12, '!')]
+
+Iterating over the enumerate
+for a,b in enumerate("HelloWorld!!"):
+   print(a,b)
+
+zip functions which is used to add the values of the two list in the same index position in the form of tuple
+
+lst1=["Apple","Bat","Cat","DANGER"]
+lst2=["TO EAT","TO PLAY","TO PET","TO AVOID"]
+zip(lst1,lst2)
+Out[312]: <zip at 0x1054e5640>
+
+list(zip(lst1,lst2))
+Out[313]: 
+[('Apple', 'TO EAT'),
+ ('Bat', 'TO PLAY'),
+ ('Cat', 'TO PET'),
+ ('DANGER', 'TO AVOID')]
+lst1=["Apple","Bat","Cat","DANGER"]
+lst2=["TO EAT","TO PLAY","TO PET","TO AVOID"]
+zip(lst1,lst2)
+for a,b in zip(lst1,lst2):
+    print(a,b)
+    
+Apple TO EAT
+Bat TO PLAY
+Cat TO PET
+DANGER TO AVOID
+
+for a in zip(lst1,lst2):
+    print(a)
+    
+('Apple', 'TO EAT')
+('Bat', 'TO PLAY')
+('Cat', 'TO PET')
+('DANGER', 'TO AVOID')   
+
+random package
+
+from random import shuffle
+lst=[1,2,3,4,5,6,7,8,9,10]
+shuffle(lst)
+print(shuffle(lst))
+None
+
+lst
+Out[322]: [8, 9, 4, 1, 3, 2, 10, 5, 6, 7]
+shuffle(lst)
+lst
+Out[324]: [2, 9, 4, 1, 3, 8, 6, 10, 7, 5]
+from random import randrange
+print(randrange(0,12))
+3
+print(randrange(0,12))
+10
+from random import randint
+print(randint(12,35))
+27
+
+There is "IN" keyword which is used to check the value is in sequence
+
+s="Sammy"
+print("a" in s)
+True
+print("k" in s)
+False
+s=["We","Are","Great","Lower"]
+print("e" in s)
+False
+print("We" in s)
+True
+print("Are" in s)
+True
+d={"k1":"v1","k2":3567}
+print("k1" in d)
+True
+print("k1" in d.items())
+False
+print(3567 in d.values())
+True
+print(3567 in d.values())
+True
+print("k1" in d.keys())
+True
+
+input() functions are used to take the input from the Users, usually it will be in string
+
