@@ -6,6 +6,11 @@ DEFINING FUNCTION:
 SYNTAX: 
 Functions:
  def fun_name(arguments/ parameters):
+     """
+     DOCSTRING HELP OF FUNCTION:
+     INPUT TO FUNCTION:
+     OUTPUT :
+     """
      code block
      return result if we are returning any value
 
@@ -20,4 +25,26 @@ class Example():
 Example.fun_name()
 
 Functions use postional arguments, or keyword arguments
+
+def myfun(a,b,c=0,d="Bangalore"):
+    print("Positional arguments: ",a,b,"Keyword arguments: ",c,d)
+myfunc("One","Two")
+
+In the above function we are giving positional arguments a,b and keyword arguments c and d, by default 
+positional arguments should be given first and next keyword arguments.
+here Value One will be assigned to a and Two will be assigned to b and as c,d has default value it will consider them
+as long we don't give any new account
+
+args and kwargs
+args is used to get anynumber of postional arguments in runtime and values will be stored in the form of tuples
+we should use tuple unpacking over here.
+kwargs is used to get anynumber of keyword arguments in runtime and values will be stored in dictionary format
+we should use dict.items() or dict.keys() or dict.values() for acessing values in them
+
+def myfunc(*args,**kwargs):
+    type(args)
+    print(args)
+    type(kwargs)
+    print(kwargs)
+
 

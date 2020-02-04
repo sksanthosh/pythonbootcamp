@@ -1,0 +1,45 @@
+map is used to apply the same functions to each values given in the list
+map(function with () as we are passing function as parameters, list of values on which the function has to be applied)
+it will give object, to access the values in them then we need to iterate on this object or convert the object to list 
+by using list() type casting
+
+map will apply the function on all the values and returns the output in the list
+filter will apply the function on the values and depending the function conditions it will retain only those values which adhere
+to the function condition and provides the object having those values and not the output.
+def func():
+   code block
+value_list=[]
+
+filter(func,value_list) -->object and iterate on them or convert the object to list using list() / type casting
+
+ex for LC: mylst=[x*y for x in range(1,4) for y in range(4,6)]
+mylst
+Out[355]: [4, 5, 8, 10, 12, 15]
+
+map filter
+
+def check_even(num):
+    return num%2==0
+my_nums=[1,2,3,4,5,6]
+list(map(check_even,my_nums))
+Out: [False, True, False, True, False, True]
+list(filter(check_even,my_nums))
+Out: [2, 4, 6]
+
+lambda are used to define the anonymous function which are need for one time
+step 1:
+def check_even(num):
+    return num%2 ==0
+step 2:
+def check_even(num):return num%2 == 0
+step 3:
+remove def and function name and rename to lambda and return as the output will be by default returned by lambda
+def check_even -> lamdba(num):num%2 == 0
+step 4:
+lambda num : num%2 ==0 now this is a lambda function which can be applied to the list of values using map or filter function
+and use list to unpack the values in them.
+
+list(map(lambda num:num%2==0:my_nums))
+
+Not all complex programs can be converted to lambda
+

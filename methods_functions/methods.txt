@@ -1,0 +1,9 @@
+Methods are the functions written in the classes.
+
+Python has got built in methods also user can define some methods in it
+
+Ex: list.append() append is a method defined in the list class
+We can get the help on any built in method using "help()"
+
+help(list.append)
+

@@ -1,0 +1,60 @@
+Python looks for the variables using LEGB rule
+L=Locally defined in the function
+E= Variables defined in the enclosed function
+G= Globally defined functions
+B= Builtin Functions defined by python like len,min,max 
+
+x="This is a global X value" # Global variable defining outside the function
+
+def greet():
+    x="ENCLOSED X VALUE"# variable defined inside the enclosed loop
+    def root():
+    x="LOCAL VARIABLE VALUE
+    print("Hello"+x)
+    
+    root()
+
+greet()
+
+In above example first it will search for the x value inside the roor function (LOCALLY), if defined it will take that.
+else: it will check for the x value defined in the function enclosed above this root function (ENCLOSED), else
+then it will take the global x which is defined above the function greet(), if does't find the global then it will check for
+builtin functions at last
+x="x defined outside greet and it is considered global value" # Global variable defining outside the function
+
+def greet():
+    x="x defined outside root and inside greet"# variable defined inside the enclosed loop
+    def root():
+        x="x defined inside root"
+        print("Hello "+x)
+
+    root()
+
+greet()
+Hello x defined inside root
+
+x="x defined outside greet and it is considered global value" # Global variable defining outside the function
+
+def greet():
+    x="x defined outside root and inside greet"# variable defined inside the enclosed loop
+    def root():
+        #x="x defined inside root"
+        print("Hello "+x)
+
+    root()
+
+greet()
+Hello x defined outside root and inside greet
+
+x="x defined outside greet and it is considered global value" # Global variable defining outside the function
+
+def greet():
+    #x="x defined outside root and inside greet"# variable defined inside the enclosed loop
+    def root():
+        #x="x defined inside root"
+        print("Hello "+x)
+
+    root()
+
+greet()
+Hello x defined outside greet and it is considered global value  
