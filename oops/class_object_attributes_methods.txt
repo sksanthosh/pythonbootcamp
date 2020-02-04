@@ -1,0 +1,104 @@
+class Dog():
+    #CLASS OBJECT ATTRIBUTE
+    species="mammal" # Class object attributes are defined for the attributes which will stay constant  irrespective of the
+    instances created from this class
+    def __init__(self,breed,name): # user passed attributes at the time of creating an instances or object
+        self.breed = breed # user attributes are connected to the instance created using self
+        self.name = name
+    def bark(self,number):# note number is not connected to the self, so we are not accessing this using self 
+        # number paramter is passed by user at the time of the calling of this method
+        print("Bow Bow Briyani!!!, My name is {} and my number is {}".format(self.name,number))
+
+dog=Dog(breed="German Shepard",name="Tony")
+
+
+dog.species
+Out[371]: 'mammal'
+
+dog.breed
+Out[372]: 'German Shepard'
+
+type(dog) 
+Out[373]:  __main__.Dog
+
+dog.name
+Out[374]: 'Tony'
+
+dog.bark
+Out[375]: <bound method Dog.bark of <__main__.Dog object at 0x10963efd0>>
+#it is telling that dog.bark is a method that is bound to Dog.class
+dog.bark()
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-376-ff7d8f2d45a4> in <module>
+----> 1 dog.bark()
+
+TypeError: bark() missing 1 required positional argument: 'number'
+#the parameter in the bark, ie., number is defined we need to send some parameters to it
+
+dog.bark(20)
+Bow Bow Briyani!!!, My name is Tony and my number is 20
+
+class object attributes can be called with self or Class name, generally class names are used to call to differ it
+from the other attributes that are defined with self
+whenever there is a method which is defined in the class which needs parameter, then while calling it we need to provide the
+values to it.
+
+class Circle():
+    pi=3.14 # COA
+    def __init__(self,radius=1):
+        self.radius=radius
+    def diameter(self):
+        return self.radius*2
+    def circumference(self):
+        return 2*Circle.pi*self.radius
+    def area(self):
+        return self.pi*self.radius*self.radius
+
+
+c=Circle()
+
+c.pi
+Out[392]: 3.14
+
+c.area()
+Out[393]: 3.14
+
+c.diameter()
+Out[394]: 2
+
+c.circumference()
+Out[395]: 6.28
+
+c.radius()
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-396-5f7c88fa59be> in <module>
+----> 1 c.radius()
+
+TypeError: 'int' object is not callable
+
+c.radius
+Out[397]: 1
+
+c=Circle(1.5)
+
+c.area()
+Out[399]: 7.0649999999999995
+
+c.diameter()
+Out[400]: 3.0
+
+c.circumference()
+Out[401]: 9.42
+
+c.radius()
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-402-5f7c88fa59be> in <module>
+----> 1 c.radius()
+
+TypeError: 'float' object is not callable
+
+c.radius
+Out[403]: 1.5

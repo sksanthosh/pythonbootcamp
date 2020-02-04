@@ -1,0 +1,26 @@
+Oops concept is built on the keyword object, the object is a reference that is created to the class
+and One can access any parameter, attributes and methods that are defined in the object using that object.
+
+The Oops begins with the keyword class and ClassName are definde in the Camelcase format
+
+class ClassName(object any class ultimated inherit all the functions, params from the object class.)
+#Object class is like god father of all the classes in py3 we don't need to define the object.
+class ClassName():
+  class_object_attributes = "value" # this is a class object attributes which does't need any assignment
+
+  def __init__(self,parameters):
+    self.parameters=parameters # this is known as instance attributes, coz the assignment to these attributes happen at the 
+    time of the instance / object creation to this class.
+
+  def methods(self):
+   pass
+    
+  Methods are the functions that are defined the class, here also the methods follows LEGB rule for variable look out.
+
+  self represents the same memory location as of object, in other words when the object is created the value of object is
+  assigned to self, so we can access any attributes,methods that touches this self.
+  Like below
+  def methods(self): # here this methods is touched to self for accessing later
+  and after self.parameters is defined we should use self.paramters in the entire class.
+
+

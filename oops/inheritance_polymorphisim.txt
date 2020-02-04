@@ -1,0 +1,38 @@
+Inheritance:
+We can use the methods and attributes that are defined in the base class or parent class in the inherited class, child class.
+class BaseParentClass():
+   def __init__(self):
+     print("Constructor method defined in the BaseParentClass")
+   def method1(self):
+     pass
+
+class ChildInheritedClass(BaseParentClass):
+    def __init__(self):
+      print("Constructor method defined in the ChildInheritedClass")
+    BaseParentClass.__init__() or super().__init__() # Calling the Constructor of the BaseParentClass explictly to print or 
+    whenever you want to initilize the attributes inthe __init__ of BaseParentClass 
+    def method2(self):
+      pass
+    def method1(self):
+      pass # we can override the method defined in the BaseParentClass by defined in BaseParentClass 
+
+c=ChildInheritedClass()
+c.method1()
+c.method2()
+
+class BaseClass():
+    def __init__(self):
+        print("Constructor method of BaseClass")
+    def method1(self):
+        pass
+
+class Child(BaseClass):
+    def __init__(self):
+        print("Constructor method of Child")
+        
+c=Child()
+Constructor method of Child
+c.method1
+Out[408]: <bound method BaseClass.method1 of <__main__.Child object at 0x109108a10>>
+c.method1()
+≈
