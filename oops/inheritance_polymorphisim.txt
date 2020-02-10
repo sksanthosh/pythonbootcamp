@@ -1,38 +1,91 @@
 Inheritance:
-We can use the methods and attributes that are defined in the base class or parent class in the inherited class, child class.
-class BaseParentClass():
-   def __init__(self):
-     print("Constructor method defined in the BaseParentClass")
-   def method1(self):
-     pass
+We can reuse the methods, functions, attributes that are defined in other class in the working class with the help of
+inheritance, with this we can reuse any methods any number of times.
 
-class ChildInheritedClass(BaseParentClass):
-    def __init__(self):
-      print("Constructor method defined in the ChildInheritedClass")
-    BaseParentClass.__init__() or super().__init__() # Calling the Constructor of the BaseParentClass explictly to print or 
-    whenever you want to initilize the attributes inthe __init__ of BaseParentClass 
-    def method2(self):
-      pass
-    def method1(self):
-      pass # we can override the method defined in the BaseParentClass by defined in BaseParentClass 
+With respect to below example:
+BaseCarClass is Base class which has only the basic and common functions or the base functions in it.
+Liva is Child Class which inherites the properties/attributes and methods from BaseCarClass in it.
 
-c=ChildInheritedClass()
-c.method1()
-c.method2()
-
-class BaseClass():
-    def __init__(self):
-        print("Constructor method of BaseClass")
-    def method1(self):
-        pass
-
-class Child(BaseClass):
-    def __init__(self):
-        print("Constructor method of Child")
+class BaseCarClass(object): # in Py2 we need to give object explicitly but now not needed
+    def __init__(self,mode,wheels,fueltype):# Constructor of the Base Class which takes 3 arguments for the creating 
+    an object to it.
+        self.mode=mode
+        self.wheels=wheels
+        self.fueltype=fueltype
+        print("created the object of your car by BaseCarclass with ",self.mode,self.wheels,self.fueltype)
+    def model(self):
+        print("Mode: "+self.mode+"\n"+
+              "Wheels: "+self.wheels+"\n"+
+              "Fueltype: "+self.fueltype)
+    def owner(self,name):#here name is not the instance attribute it is like regular method argument which is given to it
+    when it is called.
+        print("Your car belongs to "+name)
+    def function(self):#Common method implemented in all the Base Car and Child Car classes.
+        print("This car supports only Basic function")
         
-c=Child()
-Constructor method of Child
-c.method1
-Out[408]: <bound method BaseClass.method1 of <__main__.Child object at 0x109108a10>>
-c.method1()
-≈
+
+class Liva(BaseCarClass):
+   
+    def __init__(self):# Constructor of the Child class
+        print("Creating the object for the Liva")
+        BaseCarClass.__init__(self,"SemiAuto",4,"Petrol")to use the methods then we need to intilaze with the arguments
+        needed to it.
+    def function(self):
+        print("This car supports the high end ZDI functions")
+        
+
+mycar=Liva()
+Creating the object for the Liva
+created the object of your car by BaseCarclass with  SemiAuto 4 Petrol
+
+mycar.function()
+This car supports the high end ZDI functions
+
+basecar=BaseCarClass("Manual",6,"Diesel")
+created the object of your car by BaseCarclass with  Manual 6 Diesel
+
+basecar.function()
+This car supports only Basic function
+
+print(basecar)
+<__main__.BaseCarClass object at 0x109795650>
+
+print(mycar)
+<__main__.Liva object at 0x109a17490>
+
+Polymorphisim:
+Same methods reacts differently to the object of the class means we can have different functions in different class and 
+we can use them depending on the objects created to it.
+in above example we can see the method function output is different for Base Car class and Liva class.
+the method functions is also an example of method overriding, where we are overriding the method defined in the Base class
+class BaseCarClass(object):
+    def __init__(self,mode,wheels,fueltype):
+        self.mode=mode
+        self.wheels=wheels
+        self.fueltype=fueltype
+        print("created the object of your car by BaseCarclass with ",self.mode,self.wheels,self.fueltype)
+    def model(self):
+        print("Mode: "+self.mode+"\n"+
+              "Wheels: "+self.wheels+"\n"+
+              "Fueltype: "+self.fueltype)
+    def owner(self,name):
+        print("Your car belongs to "+name)
+    def function(self):
+        print("This car supports only Basic function")
+        
+
+class Liva(BaseCarClass):
+    def __init__(self):
+        BaseCarClass.__init__(self,"SemiAuto",6,"Petrol")
+        print("Creating the object for the Liva")
+    
+    def function(self,seater):
+        print("This car supports the high end ZDI functions and {}".format(seater))
+
+    
+    
+l=Liva()
+l.function(7)
+Liva.function(l,8)
+BaseCarClass.function(l)
+we are passing the object created as self or memory to get the functions
