@@ -1,0 +1,28 @@
+Pip: Python package installer
+
+All the python packages can be installed by pip command in the terminal
+
+Pypi: Python Package Interface 
+
+Pypi is the artifactory where we can dump our 
+packages into it and install them later in our projects
+
+Modules and Packages
+Modules: modules are the .py script which functions,methods attributes in it.
+Packages: Packages are collections of modules it has empty __init__.py in this folders/packages which tells the python
+that it is a package
+
+Initial_package: ls
+Secondary package, __init__.py, module1.py
+here module1.py is a module in available in the Initial_Package, we can see that __init__.py in it so python treats it as package
+
+Importing styles
+from Initial_package import module1
+from Initial_package.Secondary_package import module2
+
+Importing directly a module or its function inside the program
+import module -- this is import all the functions and attributes
+from module import func -- this will import only the func available in that
+
+
+

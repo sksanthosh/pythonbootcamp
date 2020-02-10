@@ -1,0 +1,19 @@
+__name__ == "__main__"
+
+whenever the we execute python myscript.py then actually python will starts to execute the ones which has 0 indentation levels
+usually Class,methods or functions which are defined as we dont have main() to tell the python what to execute first or second
+
+When python tries to execute based on the indentation level then it will initailize a variable __name to "__main__"
+so we check this variable whenever we call myscript.py directly
+
+myscript.py:
+
+print("This is before the if main segment")
+
+if __name__=="__main__":
+  print("this myscript has been called directly")
+else: #we can use this as it is like a regular if statement
+  print("this myscript has been called indirectly or this module has been imported")
+
+we can get an additional information of the modules whether they have been called directly or imported in other package
+
