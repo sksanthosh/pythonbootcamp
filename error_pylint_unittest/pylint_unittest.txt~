@@ -1,0 +1,23 @@
+pylint is a python packages which uses pep8 standard we can use this package to check our script is according to the pep8
+standard python ideal score is 10, sometime it is good to not put for 10 as we also want our script to be understandable
+
+we can install by pip command: pip install pylint
+
+unittest: is a builtin package that can be used to test our code.
+
+to start with the unittest we need to import the unitest module first
+
+myscript.py
+
+def func(text):
+  """
+  Input takes string as an input
+  Output gives the first character as Caps for the given string
+  """
+  if " " in text:
+     return text.title()
+  else:
+     return text.captialize
+main.py
+import unittest
+import mysciprt

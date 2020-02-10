@@ -1,0 +1,20 @@
+Every script throws an error if we have not handled them properly, and we can handle them but cannot eliminate at the run time
+as long as the flow of program is out of scope
+
+In python we use try: except and finally block to handle errors
+
+try:
+   code block that performs the actions
+except:
+   when try block throws error we can just catch that error over except block
+   syntax except Error_name: if you know the error name or just except
+we can use else also
+finally: 
+   code which has be to executed 
+
+def fun():
+     try:
+     except:
+     finally:
+
+
