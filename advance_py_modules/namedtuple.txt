@@ -1,0 +1,72 @@
+namedtuple:
+In regular tuple we can access the each element, only if we know the index position of that value.
+if we don't remember that indexvalue then we cannot access the element in that tuple.
+
+t=()
+
+t=(1,2,3,5,6)
+
+t[5]
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-12-332e8dd8018d> in <module>
+----> 1 t[5]
+
+IndexError: tuple index out of range
+
+t[4]
+Out[13]: 6
+
+t[0]
+Out[14]: 1
+
+type(t)
+Out[15]: tuple
+
+t.index(3)
+Out[16]: 2
+
+from collections import namedtuple
+
+namedtuple(t)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-18-b2325e1628b9> in <module>
+----> 1 namedtuple(t)
+
+TypeError: namedtuple() missing 1 required positional argument: 'field_names'
+
+Car=namedtuple("Car","wheels mode energytype brand")
+
+type(Car)
+Out[20]: type
+
+Car
+Out[21]: __main__.Car
+
+c=Car(mode='manual',wheels=4,brand='TVS',energytype='petrol')
+
+type(c)
+Out[23]: __main__.Car
+
+c
+Out[24]: Car(wheels=4, mode='manual', energytype='petrol', brand='TVS')
+
+c.mode
+Out[25]: 'manual'
+
+c.wheels
+Out[26]: 4
+
+c.brand
+
+Out[27]: 'TVS'
+
+c.energytype
+Out[28]: 'petrol'
+
+c.index('manual')
+Out[29]: 1
+
+c.count('wheels')
+Out[30]: 0 

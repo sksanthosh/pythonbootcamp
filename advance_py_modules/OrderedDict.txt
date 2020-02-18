@@ -1,0 +1,56 @@
+OrderedDict:
+Regular dictionary does't print the same key and value order like how they were added.
+so if we need the key and value pair to printed same as the order how they are added then we use OrderedDict from 
+collections
+
+d={}
+
+d['a']= 1
+
+d['b']=2
+
+d['c']=3
+
+d['d']=4
+
+d['e']=5
+
+d['f']=6
+
+d
+Out[216]: {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6}
+
+print(d)
+{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6}
+for k,v in d.items():
+    print (k,v)
+    
+a 1
+b 2
+c 3
+d 4
+e 5
+f 6 # We can see how unordered the keys and values
+we can avoid it using 
+from collections import OrderedDict
+
+d=OrderedDict()
+
+d['a']=1
+
+d['b']=2
+
+d['c']=3
+
+d['d']=4
+
+d['e']=5
+
+for k,v in d.items():
+    print(k,v)
+    
+a 1
+b 2
+c 3
+d 4
+e 5

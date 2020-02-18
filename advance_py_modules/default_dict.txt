@@ -1,0 +1,72 @@
+default_dict:
+default_dict is imported from collections module
+default_dict returns the value that is passed at the time of the creation, whenever there is no key and creates that key 
+with the value defined to it, without throwing an keyerror 
+
+d={}
+
+type(d)
+Out[180]: dict
+
+d={'1':'one'}
+
+d['2']='two'
+
+d
+Out[183]: {'1': 'one', '2': 'two'}
+
+d['3']# Normal dict throwing KeyError
+---------------------------------------------------------------------------
+KeyError                                  Traceback (most recent call last)
+<ipython-input-184-eef70af186d7> in <module>
+----> 1 d['3']
+
+KeyError: '3'
+
+from collections import defaultdict
+
+d=defaultdict(object)# defining object to defaultdict so it returns object address when there is no value
+
+d['one']
+Out[187]: <object at 0x111178a60>
+
+d
+Out[188]: defaultdict(object, {'one': <object at 0x111178a60>})
+
+d['2']='two'
+
+d
+Out[190]: defaultdict(object, {'one': <object at 0x111178a60>, '2': 'two'})
+
+d['3']
+Out[191]: <object at 0x111178aa0>
+
+d
+Out[192]: 
+defaultdict(object,
+            {'one': <object at 0x111178a60>,
+             '2': 'two',
+             '3': <object at 0x111178aa0>})
+
+d=defaultdict(True)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-193-5d37cc2f32e3> in <module>
+----> 1 d=defaultdict(True)
+
+TypeError: first argument must be callable or None
+
+d=defaultdict(lambda:True)
+
+d['1']
+
+Out[195]: True
+
+d
+Out[196]: defaultdict(<function __main__.<lambda>()>, {'1': True})
+
+d['2']='two'
+
+d
+Out[198]: defaultdict(<function __main__.<lambda>()>, {'1': True, '2': 'two'})
+---------

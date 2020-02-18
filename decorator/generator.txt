@@ -1,0 +1,208 @@
+Generators: generators are used to generate the value in run time by consuming less memory it uses def, return and most
+important yeild which return the value at that particular moment
+
+def generate_squares(num):
+    my_list=[] # creating list and appending the value to it takes longer time than just yeilding the calculated value directly
+    for i in range(num):
+        my_list.append(i*i)
+    return my_list
+    
+generate_squares(20)
+Out[82]: 
+[0,
+ 1,
+ 4,
+ 9,
+ 16,
+ 25,
+ 36,
+ 49,
+ 64,
+ 81,
+ 100,
+ 121,
+ 144,
+ 169,
+ 196,
+ 225,
+ 256,
+ 289,
+ 324,
+ 361]
+
+def generate_squares(num):
+    for i in range(num):
+        yield i*i# generating the values this will provides an memory reference location 
+        
+
+generate_squares(10)
+Out[84]: <generator object generate_squares at 0x1109b6bd0># Memory location reference
+
+list(generate_squares(10))# converting it to list to watch, it is similar to range function list(range(n))
+Out[85]: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+for i in generate_squares(10):
+    print(i)
+    
+0
+1
+4
+9
+16
+25
+36
+49
+64
+81
+
+Fibinoci series:
+#Best Fibinoci generator i saw till date, very simple and clean one
+def gen_fibanoci(n):
+    a=1
+    b=1
+    for i in range(n):
+        yield a
+        a,b =b,a+b
+        
+gen_fibanoci(10)
+Out[89]: <generator object gen_fibanoci at 0x110c2a9d0>
+
+for i in gen_fibanoci(10):
+    print(i)    
+1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+
+list(gen_fibanoci(10))# converting the object reference to list to view the values in it
+Out[91]: [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+
+def gen_fib(n):
+    my_out=[]
+    a=1
+    b=1
+    for i in range(n):
+        my_out.append(a)
+        a,b=b,a+b
+        
+gen_fib(10)
+
+def gen_fib(n):
+    my_out=[]
+    a=1
+    b=1
+    for i in range(n):
+        my_out.append(a)
+        a,b=b,a+b
+    return my_out
+    
+gen_fib(10)
+Out[95]: [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]    
+
+-----------
+we can iterate over the generator object using next(gen_obj) this function will remeber last value and based on that it will 
+display next value, at the end of the values it will throw StopIteration Error.
+
+for loop does the same it will perform next(item) from the gen_obj and gets the value from it, but at the end it will capture 
+that StopIteration Error hence we don't see that error.
+
+def next_gen():
+    for i in range(3):
+        yield i
+        
+next_gen()# gives the gen_object
+Out[114]: <generator object next_gen at 0x110af4450>
+next_gen# tell us that it is a function called next_gen and ran directly
+Out[115]: <function __main__.next_gen()>
+g=next_gen() created an instance
+list(g)
+Out[117]: [0, 1, 2]
+next(g)# here as all the values in it are displayed already displaying next value from it throws an error.
+---------------------------------------------------------------------------
+StopIteration                             Traceback (most recent call last)
+<ipython-input-118-e734f8aca5ac> in <module>
+----> 1 next(g)
+StopIteration: 
+g=next_gen()
+next(g)
+Out[120]: 0
+next(g)
+Out[121]: 1
+next(g)
+Out[122]: 2
+next(g)
+---------------------------------------------------------------------------
+StopIteration                             Traceback (most recent call last)
+<ipython-input-123-e734f8aca5ac> in <module>
+----> 1 next(g)
+StopIteration: 
+---
+next(next_gen())
+Out[124]: 0
+next(next_gen())
+Out[125]: 0
+-----------
+s="Hello"
+
+for i in s: #We can iterate over string with ease using for loop
+    print(i)
+    
+H
+e
+l
+l
+o
+
+next(s) We can cannot get the values in the s
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-130-61c30b5fe1d5> in <module>
+----> 1 next(s)
+
+TypeError: 'str' object is not an iterator
+
+iter(s)# converting s into a iterator object
+
+Out[131]: <str_iterator at 0x11119fdd0>
+
+next(s)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-132-61c30b5fe1d5> in <module>
+----> 1 next(s)
+
+TypeError: 'str' object is not an iterator
+
+a=iter(s) Creating an instance to the generated object
+
+a
+Out[134]: <str_iterator at 0x110c4eed0>
+
+next(a)# getting output from the s using next
+Out[135]: 'H'
+
+next(a)
+Out[136]: 'e'
+
+next(a)
+Out[137]: 'l'
+
+next(a)
+Out[138]: 'l'
+
+next(a)
+Out[139]: 'o'
+
+next(a)
+---------------------------------------------------------------------------
+StopIteration                             Traceback (most recent call last)
+<ipython-input-140-15841f3f11d4> in <module>
+----> 1 next(a)
+
+StopIteration: 

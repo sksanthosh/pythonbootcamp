@@ -1,0 +1,30 @@
+collections modules, Counter 
+from collections import Counter
+Counter is used to get the elements and its no of count value in the form the dictionary, where key represents = element
+and value represent the no of time the element was present
+
+s='Hi when are you going to the home town, is this really matters most!! Hope you are doing well'
+
+print(Counter(s))
+Counter({' ': 18, 'e': 9, 'o': 9, 't': 7, 'i': 5, 'h': 4, 'n': 4, 'a': 4, 'r': 4, 's': 4, 'l': 4, 'w': 3, 'y': 3, 'g': 3, 'm': 3, 'H': 2, 'u': 2, '!': 2, ',': 1, 'p': 1, 'd': 1})
+
+l=[1,2,3,4,5,56,56,2,3,4,5,56,7,8,1]
+print(Counter(l))
+Counter({56: 3, 1: 2, 2: 2, 3: 2, 4: 2, 5: 2, 7: 1, 8: 1})
+g=Counter(l)
+type(g)
+Out[154]: collections.Counter
+g.elements()
+Out[155]: <itertools.chain at 0x111312bd0>
+print(g.elements())
+<itertools.chain object at 0x1115e8150>
+print(list(g.elements()))
+[1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 56, 56, 56, 7, 8]
+g.most_common()
+Out[158]: [(56, 3), (1, 2), (2, 2), (3, 2), (4, 2), (5, 2), (7, 1), (8, 1)]
+list(g)
+Out[159]: [1, 2, 3, 4, 5, 56, 7, 8]
+set(g)
+Out[160]: {1, 2, 3, 4, 5, 7, 8, 56}
+dict(g)
+Out[161]: {1: 2, 2: 2, 3: 2, 4: 2, 5: 2, 56: 3, 7: 1, 8: 1}

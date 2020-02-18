@@ -1,0 +1,213 @@
+Decorators:
+Decorators are used to apply some extra function to the old function, without discarding the actual operation defined in the old
+function.
+decorators work with the functions passing as argument logic
+--------------
+def hello():# simple function is defined here
+    print("Hi i'm hello()")
+greet=hello # Note we are not executing the function i mean not calling as hello() so the hello will be holding the func object
+which will be assigned to greet
+greet
+Out[36]: <function __main__.hello()># greet having object of hello saying that it a function now that belongs to hello()
+hello
+Out[37]: <function __main__.hello()>
+greet()# executing greet function
+Hi i'm hello()
+
+hello()# executing hello function
+Hi i'm hello()
+
+del hello# deleted hello function
+hello# checking if hello function object still there
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-41-f572d396fae9> in <module>
+----> 1 hello
+
+NameError: name 'hello' is not defined
+
+hello()# checking if hello function is still there (yes, we have deleted the reference only hence its not needed to verify this)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-42-a75d7781aaeb> in <module>
+----> 1 hello()
+
+NameError: name 'hello' is not defined
+
+greet 
+Out[43]: <function __main__.hello()> # But greet still refers to old hello
+
+greet()
+Hi i'm hello() # executing greet function
+
+Now we use this function assignment to variable logic further
+---------------------
+def hello(name="SK"):
+    print("Hi i'm hello()")
+    def greet():
+        print("\t Hi, SK Nice to see you son")
+    def other_user():
+        print("\t Hey you other user stop using this system")
+    greet()# calling greet function inside hello
+    other_user()# calling other_user func inside hello
+    
+hello()# Executing hello func
+Hi i'm hello()
+         Hi, SK Nice to see you son
+         Hey you other user stop using this system
+---------
+#Implementing variable assignment logic here
+def hello(name="SK"):
+    print("Hi i'm hello()")
+    def greet():
+        print("\t Hi, SK Nice to see you son")
+    def other_user():
+        print("\t Hey you other user stop using this system")
+    if name == "SK":
+        return greet# returns greet func obj reference 
+    else:
+        return other_user # returns other_user fun obj reference
+        
+
+hello()
+Hi i'm hello()# By default as user is SK it will be pointing to local fun greet defined in hello fun
+Out[48]: <function __main__.hello.<locals>.greet()># Same local fun greet defined in hello fun
+
+my_variable_holds_return_of_func_from_hello=hello("NY")# variable holding returned fun obj reference from hello func
+Hi i'm hello()
+
+my_variable_holds_return_of_func_from_hello
+Out[50]: <function __main__.hello.<locals>.other_user()>#local other_user fun defined in hello an called directly
+
+my_variable_holds_return_of_func_from_hello()# executing other_fun as variable_func
+         Hey you other user stop using this system
+
+my_variable_holds_return_of_func_from_hello=hello("SK")
+Hi i'm hello()
+
+my_variable_holds_return_of_func_from_hello
+Out[53]: <function __main__.hello.<locals>.greet()># local fun greet defined in hello
+
+my_variable_holds_return_of_func_from_hello()# executing greet_fun as this variabl fun
+         Hi, SK Nice to see you son
+------------
+Now we see how we can apply same logic by defining this extra func which is applying to same hello fun
+def greet(hello):# Defined greet fun that takes hello fun as argument (remember func assgined to variable logic)
+    print("This is greet()")
+    def wrap_greet():# adding extra code  to hello
+        hello()# executing func over here
+        print("\t Hi, SK nice to see you macha")
+    return wrap_greet# returning this func object to outside variable for further operation
+ 
+def other_user(hello):# other_user func defined outside and takes hello fun obj reference as paramter
+    print("This is other_user()")
+    def wrap_other_user():
+        hello()
+        print("Hey you other user, dont spy on this system")
+    return wrap_other_user# returning other_func obj reference to outside variable
+
+def dec_applying_basic_func():
+    user=input("Who are you?: ")
+    def hello():
+        print("This is hello() inside the dec_applying_basic_func")
+    if user == "SK":
+        decorator_variable = greet(hello)# calling greet func by passing hello func obj refer as i/p and storing returned obj 
+        #func obj reference in it
+    else:
+        decorator_variable = other_user(hello)#calling other fun and passing hello obj i/p and getting returned wrap_other_fun 
+        #obj reference in it
+    decorator_variable# checking the returned ref obj
+    decorator_variable()# executing it
+dec_applying_basic_func()
+
+Who are you?: SK
+This is greet()
+<function greet.<locals>.wrap_greet at 0x110d83170>
+This is hello() inside the dec_applying_basic_func
+         Hi, SK nice to see you macha
+
+dec_applying_basic_func()
+
+Who are you?: sdk
+This is other_user()
+<function other_user.<locals>.wrap_other_user at 0x110d83440>
+Hey you other user, dont spy on this system
+------
+realtering the code by using decorator syntax
+@wrap_func
+original func
+with respec to above ex original fun hello and wrap_fun may be other_user or greet fun 
+@wrap_fun will take original fun as obj reference and apply wrapping code to it and executes the wrap_fun_obj as func
+def dec_applying_basic_func():
+    user=input("Who are you?: ")
+    if user == "SK":
+        @greet
+        def hello():
+            print("This is hello() inside the dec_applying_basic_func")
+        #decorator_variable = greet(hello)
+    else:
+        @other_user
+        def hello():
+            print("This is hello() inside the dec_applying_basic_func")
+    hello()
+        #decorator_variable = other_user(hello)
+    #decorator_variable
+    #decorator_variable()
+    
+
+dec_applying_basic_func()
+
+Who are you?: SK
+This is greet()
+This is hello() inside the dec_applying_basic_func
+         Hi, SK nice to see you macha
+
+dec_applying_basic_func()
+
+Who are you?: sdk
+This is other_user()
+Hey you other user, dont spy on this system
+-----
+invalid styles
+def dec_applying_basic_func():
+    user=input("Who are you?: ")
+    def hello():
+        print("This is hello() inside the dec_applying_basic_func")
+    if user == "SK":
+        @greet
+        hello
+        #decorator_variable = greet(hello)
+    else:
+        @other_user
+        hello
+        #decorator_variable = other_user(hello)
+    decorator_variable
+    decorator_variable()
+  File "<ipython-input-66-05cafd65d00a>", line 7
+    hello
+        ^
+SyntaxError: invalid syntax
+
+
+def dec_applying_basic_func():
+    user=input("Who are you?: ")
+    def hello():
+        print("This is hello() inside the dec_applying_basic_func")
+    if user == "SK":
+        @greet
+        hello()
+        #decorator_variable = greet(hello)
+    else:
+        @other_user
+        hello()
+        #decorator_variable = other_user(hello)
+    #decorator_variable
+    #decorator_variable()
+  File "<ipython-input-67-1682a619afda>", line 7
+    hello()
+        ^
+SyntaxError: invalid syntax
+
+
+
+    
